@@ -25,12 +25,12 @@ function formatNumber(num) {
 
 function updateGUI() {
     document.getElementById("pointsproduced").innerHTML = `You are producing ${(formatNumber(cnter * 1 + cnter2 * 10 + cnter3 * 50))} point(s) per second`;
-    document.getElementById("points").innerHTML = "Total = " + formatNumber(points) + " points";
+    document.getElementById("points").innerHTML = "Total = " + formatNumber(points);
     document.getElementById("sum").innerHTML = `You have ${cnter} Summations producing ${formatNumber(cnter)} point(s) per second`;
     document.getElementById("sum-btn").innerHTML = `Buy Summation (Cost: ${formatNumber(Math.floor(10 * mult))} points)`;
-    document.getElementById("eval").innerHTML = `You have ${cnter2} Evaluations producing ${formatNumber(cnter2 * 10)} point(s) per second`;
+    document.getElementById("eval").innerHTML = `You have ${cnter2} Evaluations producing ${formatNumber(cnter2 * 10)} points per second`;
     document.getElementById("eval-btn").innerHTML = `Buy Evaluation (Cost: ${formatNumber(Math.floor(100 * mult2))} points)`;
-    document.getElementById("tally").innerHTML = `You have ${cnter3} Tallies producing ${formatNumber(cnter3 * 50)} point(s) per second`;
+    document.getElementById("tally").innerHTML = `You have ${cnter3} Tallies producing ${formatNumber(cnter3 * 50)} points per second`;
     document.getElementById("tally-btn").innerHTML = `Buy Tally (Cost: ${formatNumber(Math.floor(500 * mult3))} points)`;
 }   
 
