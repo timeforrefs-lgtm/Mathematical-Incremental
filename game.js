@@ -5,25 +5,27 @@ let cnter3 = 0
 let mult = Math.pow(1.15, cnter)
 let mult2 = Math.pow(1.15, cnter2)
 let mult3 = Math.pow(1.15, cnter3)
-let additionUnlocked = false
 
 function formatNumber(num) {
     if (num === 0) return "0.00";
 
     if (Math.abs(num) < 1e9) {
-        return num.toFixed(2);
+        return num.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
     }
 
     let exponent = Math.floor(Math.log10(Math.abs(num)));
     let mantissa = num / Math.pow(10, exponent);
 
-    return mantissa.toFixed(2) + "e" + exponent;
+    return mantissa.toFixed(2) + "e" + exponent.toLocaleString("en-US");
 }
 
 
 function updateGUI() {
-    document.getElementById("pointsproduced").innerHTML = `You are producing ${formatNumber(cnter * 1 + cnter2 * 10 + cnter3 * 50)} point(s) per second`;
-    document.getElementById("points").innerHTML = "Total = " + formatNumber(points);
+    document.getElementById("pointsproduced").innerHTML = `You are producing ${(formatNumber(cnter * 1 + cnter2 * 10 + cnter3 * 50))} point(s) per second`;
+    document.getElementById("points").innerHTML = "Total = " + formatNumber(points) + " points";
     document.getElementById("sum").innerHTML = `You have ${cnter} Summations producing ${formatNumber(cnter)} point(s) per second`;
     document.getElementById("sum-btn").innerHTML = `Buy Summation (Cost: ${formatNumber(Math.floor(10 * mult))} points)`;
     document.getElementById("eval").innerHTML = `You have ${cnter2} Evaluations producing ${formatNumber(cnter2 * 10)} point(s) per second`;
