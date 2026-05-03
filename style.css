@@ -55,14 +55,14 @@
 
 #sum-btn, #eval-btn, #tally-btn {
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-    border-color: rgb(0, 0, 0);
+    border-color: rgb(255, 0, 0);
     border-width: 2px;
     border-radius: 3px;
     align-self: center;
 }
 
 #sum-btn:active, #eval-btn:active, #tally-btn:active {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 64, 64);
     color: white;
 }
 
@@ -71,7 +71,7 @@
 }
 
 #sum-btn:hover, #eval-btn:hover, #tally-btn:hover {
-    background-color: rgb(118, 118, 118);
+    background-color: rgb(255, 0, 0);
     color: white;
     cursor: pointer;
 }
@@ -88,4 +88,15 @@
     width: 80%;
     border: 1px solid rgb(255, 76, 56);
     margin-top: 0px;
+}
+
+#sum-btn.affordable, #eval-btn.affordable, #tally-btn.affordable {
+    transition:all 0.3s ease-in-out;
+    border-color: rgb(0, 138, 30);
+}
+
+#sum-btn.affordable:hover, #eval-btn.affordable:hover, #tally-btn.affordable:hover {
+    background-color: rgb(0, 138, 30);
+    color: white;
+    cursor: pointer;
 }
