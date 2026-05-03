@@ -32,9 +32,23 @@ function updateGUI() {
     document.getElementById("eval-btn").innerHTML = `Buy Evaluation (Cost: ${formatNumber(Math.floor(100 * mult2))} points)`;
     document.getElementById("tally").innerHTML = `You have ${cnter3} Tallies producing ${formatNumber(cnter3 * 50)} points per second`;
     document.getElementById("tally-btn").innerHTML = `Buy Tally (Cost: ${formatNumber(Math.floor(500 * mult3))} points)`;
-}   
 
-
+    if (points >= Math.floor(10 * mult)) {
+        document.getElementById("sum-btn").classList.add("affordable");
+    } else {
+        document.getElementById("sum-btn").classList.remove("affordable");
+    }
+    if (points >= Math.floor(100 * mult2)) {
+        document.getElementById("eval-btn").classList.add("affordable");
+    } else {
+        document.getElementById("eval-btn").classList.remove("affordable");
+    }
+    if (points >= Math.floor(500 * mult3)) {
+        document.getElementById("tally-btn").classList.add("affordable");
+    } else {
+        document.getElementById("tally-btn").classList.remove("affordable");
+    }
+}
 
 document.getElementById("clicker").onclick = function() {
     points++
