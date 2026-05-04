@@ -5,23 +5,45 @@ let cnter3 = 0
 let mult = Math.pow(1.15, cnter)
 let mult2 = Math.pow(1.15, cnter2)
 let mult3 = Math.pow(1.15, cnter3)
+let theta = 0
+document.getElementById("guide-content").style.display = "none";
 
 function formatNumber(num) {
     if (num === 0) return "0.00";
 
-    if (Math.abs(num) < 1e9) {
+    if (Math.abs(num) >= 1e9) {
+        let exponent = Math.floor(Math.log10(Math.abs(num)));
+        let mantissa = num / Math.pow(10, exponent);
+        return mantissa.toFixed(2) + "e" + exponent.toLocaleString("en-US");
+    }
+
+    if (Math.abs(num) >= 1000) {
         return num.toLocaleString("en-US", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
         });
     }
 
-    let exponent = Math.floor(Math.log10(Math.abs(num)));
-    let mantissa = num / Math.pow(10, exponent);
-
-    return mantissa.toFixed(2) + "e" + exponent.toLocaleString("en-US");
+    return num.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
 }
 
+
+function tab1() {
+    document.getElementById("addition-container").style.display = "flex";
+    document.getElementById("main-container").style.display = "flex";
+    document.getElementById("subtraction-container").style.display = "flex";
+    document.getElementById("guide-content").style.display = "none";
+}
+
+function tab2() {
+    document.getElementById("addition-container").style.display = "none";
+    document.getElementById("main-container").style.display = "none";
+    document.getElementById("guide-content").style.display = "block";
+    document.getElementById("subtraction-container").style.display = "none";
+}
 
 function updateGUI() {
     document.getElementById("pointsproduced").innerHTML = `You are producing ${(formatNumber(cnter * 1 + cnter2 * 10 + cnter3 * 50))} point(s) per second`;
