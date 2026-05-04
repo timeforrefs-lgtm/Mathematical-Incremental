@@ -1,3 +1,28 @@
+.tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    padding: 1%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 20px;
+    border-color: rgb(255, 255, 255);
+    color: rgb(102, 102, 102);
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+button{
+    border-radius: 3px;
+    border-width: 2px;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
@@ -37,11 +62,22 @@
     color: white;
 }
 
+.BIDMAS-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* ========================= */
+/* ADDITION CONTAINER */
+/* ========================= */
+
 .addition-container {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
-    padding: 5px;
-    width: 35%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -51,7 +87,62 @@
     background-color: salmon;
     border-radius: 5px;
     text-align:center;
+    padding: 5px;
+    width: 480px;
 }
+
+/* 🔧 FIXED TITLE + HR ALIGNMENT */
+.main-add {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 10px 0 2px 0;   /* controlled spacing */
+    line-height: 1;         /* removes extra height */
+}
+
+.add-break {
+    width: 432px;
+    border: 1px solid rgb(255, 76, 56);
+    margin: 0;              /* removes default spacing */
+}
+
+/* ========================= */
+/* SUBTRACTION CONTAINER */
+/* ========================= */
+
+.subtraction-container {
+    height: 363.5px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    border: 3px solid rgb(56, 132, 255);
+    background-color: rgb(109, 162, 255);
+    border-radius: 5px;
+    text-align:center;
+    padding: 5px;
+    width: 480px;
+}
+
+/* 🔧 FIXED TITLE + HR ALIGNMENT */
+.main-sub {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 10px 0 2px 0;
+    line-height: 1;
+}
+
+.sub-break {
+    width: 432px;
+    border: 1px solid rgb(56, 132, 255);
+    margin: 0;
+}
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
 
 #sum-btn, #eval-btn, #tally-btn {
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -76,18 +167,12 @@
     cursor: pointer;
 }
 
-.main-add {
-    font-size: 24px;
-    font-weight: 500;
-    margin: 0%;
-    margin-top: 10px;
-    margin-bottom: 0px;
+.add-break {
+    margin-bottom: 10px; /* spacing below line */
 }
 
-.add-break {
-    width: 80%;
-    border: 1px solid rgb(255, 76, 56);
-    margin-top: 0px;
+.sub-break {
+    margin-bottom: 20px;
 }
 
 #sum-btn.affordable, #eval-btn.affordable, #tally-btn.affordable {
@@ -100,3 +185,49 @@
     color: white;
     cursor: pointer;
 }
+
+#sub-btn {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-color: rgb(41, 123, 255);
+    background-color: rgb(142, 183, 255);
+    font-size: 20px;
+    color: black;
+    border-width: 2px;
+    border-radius: 3px;
+    align-self: center;
+}
+
+#sub-btn:hover {
+    background-color: rgb(41, 123, 255);
+    color: white;
+    cursor: pointer;
+}
+
+#subupgrade1, #subupgrade2, #subupgrade3 {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-color: rgb(6, 67, 165);
+    background-color: rgb(6, 67, 165);
+    color: white;
+    border-width: 2px;
+    border-radius: 3px;
+    align-self: center;
+}
+
+#subupgrade1.bought, #subupgrade2.bought, #subupgrade3.bought {
+    transition:all 0.3s ease-in-out;
+    border-color: rgb(0, 138, 30);
+    background-color: rgb(0, 138, 30);
+    color: white;
+}
+
+.sub-break {
+    margin-bottom: 40px;
+}
+
+.stylesub {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 10px;
+}
+
