@@ -71,10 +71,6 @@ button{
     margin-top: 20px;
 }
 
-/* ========================= */
-/* ADDITION CONTAINER */
-/* ========================= */
-
 .addition-container {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
@@ -91,23 +87,18 @@ button{
     width: 480px;
 }
 
-/* 🔧 FIXED TITLE + HR ALIGNMENT */
 .main-add {
     font-size: 24px;
     font-weight: 500;
-    margin: 10px 0 2px 0;   /* controlled spacing */
-    line-height: 1;         /* removes extra height */
+    margin: 10px 0 2px 0;
+    line-height: 1;
 }
 
 .add-break {
     width: 432px;
     border: 1px solid rgb(255, 76, 56);
-    margin: 0;              /* removes default spacing */
+    margin: 0;
 }
-
-/* ========================= */
-/* SUBTRACTION CONTAINER */
-/* ========================= */
 
 .subtraction-container {
     height: 363.5px;
@@ -126,7 +117,6 @@ button{
     width: 480px;
 }
 
-/* 🔧 FIXED TITLE + HR ALIGNMENT */
 .main-sub {
     font-size: 24px;
     font-weight: 500;
@@ -139,10 +129,6 @@ button{
     border: 1px solid rgb(56, 132, 255);
     margin: 0;
 }
-
-/* ========================= */
-/* BUTTONS */
-/* ========================= */
 
 #sum-btn, #eval-btn, #tally-btn {
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
