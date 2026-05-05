@@ -12,6 +12,7 @@ var thetaUnlocked = false
 let subupgrade1Purchased = false
 let subupgrade2Purchased = false
 let subupgrade3Purchased = false
+let currentTab = "+/-";
 document.getElementById("guide-content").style.display = "none";
 document.getElementById("subtraction-container").style.display = "none";
 document.getElementById("win").style.display = "none";
@@ -61,11 +62,13 @@ function formatNumberShort(num2) {
 }
 
 function tab1() {
+    currentTab = "+/-";
     document.getElementById("addition-container").style.display = "flex";
     document.getElementById("guide-content").style.display = "none";
 }
 
 function tab2() {
+    currentTab = "Guide";
     document.getElementById("addition-container").style.display = "none";
     document.getElementById("guide-content").style.display = "block";
     document.getElementById("subtraction-container").style.display = "none";
@@ -161,7 +164,7 @@ function updateGUI() {
         document.getElementById("subupgrade3").classList.add("bought");
     }
 
-    if (thetaUnlocked) {
+    if (thetaUnlocked && currentTab === "+/-") {
         document.getElementById("subtraction-container").style.display = "flex";
     }
 }
