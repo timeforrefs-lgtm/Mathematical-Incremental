@@ -8,6 +8,7 @@
 }
 
 .tabs button {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
     padding: 1%;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -16,6 +17,12 @@
     color: rgb(102, 102, 102);
     border-radius: 6px;
     margin-top: 20px;
+}
+
+.tabs button:hover {
+    background-color: rgb(102, 102, 102);
+    color: white;
+    cursor: pointer;
 }
 
 button{
@@ -122,6 +129,8 @@ button{
     font-weight: 500;
     margin: 10px 0 2px 0;
     line-height: 1;
+    margin-top: 0px;
+    align-self: top;
 }
 
 .sub-break {
@@ -154,7 +163,7 @@ button{
 }
 
 .add-break {
-    margin-bottom: 10px; /* spacing below line */
+    margin-bottom: 10px;
 }
 
 .sub-break {
@@ -206,10 +215,6 @@ button{
     color: white;
 }
 
-.sub-break {
-    margin-bottom: 40px;
-}
-
 .stylesub {
     display: flex;
     flex-direction: row;
@@ -217,3 +222,30 @@ button{
     margin-top: 10px;
 }
 
+#win{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+.win-title {
+    font-size: 32px;
+    margin: 0;
+    margin-top: 20px;
+    animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { color: rgb(200, 0, 0); }
+    14% { color: rgb(255, 166, 0); }
+    28% { color: yellow; }
+    42% { color: green; }
+    56% { color: blue; }
+    70% { color: indigo; }
+    84% { color: violet; }
+    100% { color: rgb(200, 0, 0); }
+}
