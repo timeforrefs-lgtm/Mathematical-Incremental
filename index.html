@@ -8,49 +8,56 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="tabs">
-            <button onclick="tab1()">BIDMAS/PEMDAS</button>
-            <button onclick="tab2()">The Guide</button>
-        </div>
-        <div class="guide-content" id="guide-content">
-            <p id="guide-container">
+        <div id="everything">
+            <div class="tabs">
+                <button onclick="tab1()">+/-</button>
+                <button onclick="tab2()">Guide</button>
+            </div>
+
+            <div class="main-container" id="main-container">
+                <p id="points">Total = 0.00</p>
+                <p id="pointsproduced">You are producing 0.00 point(s) per second</p>
+                <button id="clicker">+1 Point</button>
+            </div>
+            <div class="guide-content" id="guide-content">
+                <p id="guide-container">
                     Welcome to Mathematical Incremental!
                     The goal of this game so far is to get all upgrades in Square Root.
                     Don't worry, there will be more content added in the future.
-            </p>
-        </div>
-        <div class="main-container" id="main-container">
-            <p id="points">Total = 0.00</p>
-            <p id="pointsproduced">You are producing 0.00 point(s) per second</p>
-            <button id="clicker">+1 Point</button>
-        </div>
-        <div class="BIDMAS-container">
-            <div class="addition-container" id="addition-container">
-                <p class="main-add">Addition (+)</p>
-                <hr class="add-break">
-                <div class="summations">
-                    <p id="sum">You have 0 Summations producing 0 point(s) per second</p>
-                    <button id="sum-btn">Buy Summation (Cost: 10 points)</button>
+                </p>
+            </div>
+            <div class="BIDMAS-container">
+                <div class="addition-container" id="addition-container">
+                    <p class="main-add">Addition (+)</p>
+                    <hr class="add-break">
+                    <div class="summations">
+                        <p id="sum">You have 0 Summations producing 0 point(s) per second</p>
+                        <button id="sum-btn">Buy Summation (Cost: 10 points)</button>
+                    </div>
+                    <div class="evaluations">
+                        <p id="eval">You have 0 Evaluations producing 0 points per second</p>
+                        <button id="eval-btn">Buy Evaluation (Cost: 100 points)</button>
+                    </div>
+                    <div class="tallies">
+                        <p id="tally">You have 0 Tallies producing 0 points per second</p>
+                        <button id="tally-btn">Buy Tally (Cost: 500 points)</button>
+                    </div>
                 </div>
-                <div class="evaluations">
-                    <p id="eval">You have 0 Evaluations producing 0 points per second</p>
-                    <button id="eval-btn">Buy Evaluation (Cost: 100 points)</button>
-                </div>
-                <div class="tallies">
-                    <p id="tally">You have 0 Tallies producing 0 points per second</p>
-                    <button id="tally-btn">Buy Tally (Cost: 500 points)</button>
+                <div class="subtraction-container" id="subtraction-container">
+                    <p class="main-sub">Subtraction (-)</p>
+                    <hr class="sub-break">
+                    <button id="sub-btn">Gain Theta (Cost: 10000 points)</button>
+                    <div class="stylesub">
+                        <button id="subupgrade1"><span>Boost point Gain based on Theta</span><br><span id="costsu1">Cost: 2 Theta</span></button>
+                        <button id="subupgrade2"><span>Tallies produce 20x more points</span><br><span id="costsu2">Cost: 5 Theta</span></button>
+                    </div>
+                        <button id="subupgrade3"><span>Beat the Game</span><br><span id="costsu3">Cost: 15 Theta</span></button>
                 </div>
             </div>
-            <div class="subtraction-container" id="subtraction-container">
-                <p class="main-sub">Subtraction (-)</p>
-                <hr class="sub-break">
-                <button id="sub-btn">Gain Theta (Cost: 10000 points)</button>
-                <div class="stylesub">
-                    <button id="subupgrade1"><p>Boost point Gain based on Theta</p>Cost: 2 Theta</button>
-                    <button id="subupgrade2"><p>Point Gain by Tallies is multiplied by 20</p>Cost: 5 Theta</button>
-                </div>
-                    <button id="subupgrade3"><p>Unlock Multiplication</p>Cost: 15 Theta</button>
-            </div>
+        </div>
+        <div id="win">
+                <h1 class="win-title">Congratulations!</h1>
+                <p>You have beaten the game by purchasing Subtraction Upgrade 3! More content will be added in the future, so stay tuned!</p>
         </div>
         <script src="game.js"></script>
     </body>
