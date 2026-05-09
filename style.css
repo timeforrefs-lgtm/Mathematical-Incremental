@@ -101,6 +101,7 @@ button{
     text-align:center;
     padding: 5px;
     width: 480px;
+    height : 363.5px;
 }
 
 .main-add {
@@ -130,15 +131,15 @@ button{
     border-radius: 5px;
     text-align:center;
     padding: 5px;
-    max-width: 480px;
+    width: 480px;
+    max-width: 500px;
 }
 
 .main-sub {
     font-size: 24px;
     font-weight: 500;
-    margin: 10px 0 2px 0;
+    margin: 10px 0 2px;
     line-height: 1;
-    margin-top: 0px;
 }
 
 .sub-break {
