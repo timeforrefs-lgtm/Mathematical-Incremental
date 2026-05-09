@@ -170,6 +170,18 @@ function updateGUI() {
         document.getElementById("tally-btn").classList.remove("affordable");
     }
 
+    if (theta >= 2 && !subupgrade1Purchased && currentTab === "+/-") {
+        document.getElementById("subupgrade1").classList.add("affordable");
+    }
+
+    if (theta >= 5 && !subupgrade2Purchased && currentTab === "+/-") {
+        document.getElementById("subupgrade2").classList.add("affordable");
+    }
+
+    if (theta >= 30 && !subupgrade3Purchased && currentTab === "+/-") {
+        document.getElementById("subupgrade3").classList.add("affordable");
+    }
+
     if (subupgrade1Purchased) {
         document.getElementById("subupgrade1").classList.add("bought");
     }
