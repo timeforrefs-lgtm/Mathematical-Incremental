@@ -130,7 +130,7 @@ button{
     border-radius: 5px;
     text-align:center;
     padding: 5px;
-    width: 480px;
+    max-width: 480px;
 }
 
 .main-sub {
@@ -216,6 +216,21 @@ button{
     align-self: center;
 }
 
+#subupgrade1:hover, #subupgrade2:hover, #subupgrade3:hover {
+    cursor:not-allowed;
+}
+
+#subupgrade1.affordable, #subupgrade2.affordable, #subupgrade3.affordable {
+    transition:all 0.3s ease-in-out;
+    border-color: rgb(167, 172, 0);
+    background-color: rgb(167, 172, 0);
+    color: white;
+}
+
+#subupgrade1.affordable:hover, #subupgrade2.affordable:hover, #subupgrade3.affordable:hover {
+    cursor: pointer;
+}
+
 #subupgrade1.bought, #subupgrade2.bought, #subupgrade3.bought {
     transition:all 0.3s ease-in-out;
     border-color: rgb(0, 138, 30);
@@ -224,10 +239,21 @@ button{
 }
 
 .stylesub {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
     gap: 10px;
     margin-top: 10px;
+}
+
+#subupgrade3 {
+    grid-column: 1 / 3;
+    justify-self: center;
+    width: 220px;
+}
+
+.stylesub button {
+    height: 100px;
 }
 
 .su1-title, .su2-title, .su3-title {
