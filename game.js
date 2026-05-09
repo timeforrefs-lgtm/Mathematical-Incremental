@@ -245,7 +245,7 @@ document.getElementById("subupgrade2").onclick = function() {
 }
 
 document.getElementById("subupgrade3").onclick = function() {
-    if (theta >= 25 && !subupgrade3Purchased) {
+    if (theta >= 30 && !subupgrade3Purchased) {
         subupgrade3Purchased = true;
         document.getElementById("costsu3").innerHTML = "Unlocked!";
         updateGUI();
