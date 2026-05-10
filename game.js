@@ -292,7 +292,7 @@ setInterval(function() {
 
     points += pointsToAdd;
 
-    if (points >= 50 && cnter+cnter2+cnter3 === 0) {
+    if (points >= 25 && cnter+cnter2+cnter3 === 0) {
         document.getElementById("everything").style.display = "none";
         document.getElementById("lose").style.display = "flex";
     }
