@@ -10,7 +10,7 @@ let amplifierCost = 500;
 function updateMultiplicationGUI() {
     let productProduction = products * 1;
     let quintuplerProduction = quintuplers * 10;
-    let amplifierProduction = amplifiers * 50;
+    let amplifierProduction = amplifiers * 50 * mu3boost;
 
     let totalPowerProduction =
         productProduction +
