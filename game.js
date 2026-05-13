@@ -11,12 +11,18 @@ let subupgrade1Purchased = false
 let subupgrade2Purchased = false
 let subupgrade3Purchased = false
 let currentTab = "+/-";
+let currentmulTab = "pwrgain";
 document.getElementById("guide-content").style.display = "none";
 document.getElementById("subtraction-container").style.display = "none";
 document.getElementById("mul-tab-content").style.display = "none";
+document.getElementById("mulupgrow2").style.display = "none"
+document.getElementById("mulupgrow3").style.display = "none"
+document.getElementById("mulupgrow4").style.display = "none"
+document.getElementById("mulupgrades").style.display = "none"
 document.getElementById("mul-tab").style.display = "none";
 document.getElementById("lose").style.display = "none";
 document.getElementById("win").style.display = "none";
+
 
 function getPowerBoost() {
     return 1;
@@ -87,6 +93,18 @@ function tab3() {
     document.getElementById("mul-tab-content").style.display = "block";
     document.getElementById("guide-content").style.display = "none";
     document.getElementById("subtraction-container").style.display = "none";
+}
+
+function multab1() {
+    currentmulTab = "pwrgain";
+    document.getElementById("power-content").style.display = "block"
+    document.getElementById("mulupgrades").style.display = "none"
+}
+
+function multab2() {
+    currentmulTab = "mulupgs";
+    document.getElementById("power-content").style.display = "none"
+    document.getElementById("mulupgrades").style.display = "flex"
 }
 
 function updateGUI() {
@@ -206,7 +224,7 @@ document.getElementById("clicker").onclick = function() {
 
 document.getElementById("sum-btn").onclick = function() {
     if (points >= Math.floor(10 * mult)) {
-        points -= Math.floor(10 * mult)
+        points -= Math.floor(10 * mult) * mu1costdedu
         cnter++
         mult = Math.pow(1.15, cnter)
         updateGUI()
@@ -215,7 +233,7 @@ document.getElementById("sum-btn").onclick = function() {
 
 document.getElementById("eval-btn").onclick = function() {
     if (points >= Math.floor(100 * mult2)) {
-        points -= Math.floor(100 * mult2)
+        points -= Math.floor(100 * mult2) * mu1costdedu
         cnter2++
         mult2 = Math.pow(1.15, cnter2)
         updateGUI()
@@ -224,7 +242,7 @@ document.getElementById("eval-btn").onclick = function() {
 
 document.getElementById("tally-btn").onclick = function() {
     if (points >= Math.floor(500 * mult3)) {
-        points -= Math.floor(500 * mult3)
+        points -= Math.floor(500 * mult3) * mu1costdedu
         cnter3++
         mult3 = Math.pow(1.15, cnter3)
         updateGUI()
