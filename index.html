@@ -5,8 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="The good old mathematical incremental game by Timeforrefs (heavily inspired by Algebraic Progression)" />
-        <meta name="google-site-verification" content="71-3qNh8JJTpRNudy9ldg6cKR2c0dA91MEkktl9RkW0" />
-        <title>Mathematical Incremental v0.2.1</title>
+        <title>Mathematical Incremental v0.3.2</title>
         <link rel="icon" type="image/png" href="mathinc.png">
         <link rel="stylesheet" href="style.css">
     </head>
@@ -35,15 +34,45 @@
                     And do not click the +1 Point button too many times. You won't like what happens if you do.
                 </p>
             </div>
-            <div class="mul-cntr">
-                <div id="mul-tab-content" class="mul-content">
+            <div class="mul-content" id="mul-tab-content">
+                <div id="mul-tabs">
+                    <button onclick="multab1()">Power Gain</button>
+                    <button onclick="multab2()">Multiplication Upgrades</button>
+                </div>
+                <div id="mulupgrades" class="mulupgrades">
+                    <div id="mulupgrow1" class="mulupgrow">
+                        <button class="mulupg" id="mulupg1"><span class="mu1-title">Nobody cares about Compound Interest</span><br><span>Addition now only requires Points instead of Costing Points</span><br><span id="costmu1">Cost: 1.00e9 Points</span></button>
+                        <button class="mulupg" id="mulupg2"><span class="mu2-title">Poor mouse...</span><br><span>Addition Generators now have Autobuyers</span><br><span id="costmu2">Cost: 2.00e10 Points</span></button>
+                        <button class="mulupg" id="mulupg3"><span class="mu3-title">OP AmplifierClicker</span><br><span>Amplifiers produce 20x more Power</span><br><span id="costmu3">Cost: 5.00e10 Points</span></button>
+                        <button class="mulupg" id="mulupg4"><span class="mu4-title">This ain't Subtraction Upgrade 3...</span><br><span>Beat the Game</span><br><span id="costmu4">Cost: 1.00e11 Points</span></button>
+                    </div>
+                    <div id="mulupgrow2" class="mulupgrow">
+                        <button class="mulupg" id="mulupg5">Placeholder</button>
+                        <button class="mulupg" id="mulupg6">Placeholder</button>
+                        <button class="mulupg" id="mulupg7">Placeholder</button>
+                        <button class="mulupg" id="mulupg8">Placeholder</button>
+                    </div>
+                    <div id="mulupgrow3" class="mulupgrow">
+                        <button class="mulupg" id="mulupg9">Placeholder</button>
+                        <button class="mulupg" id="mulupg10">Placeholder</button>
+                        <button class="mulupg" id="mulupg11">Placeholder</button>
+                        <button class="mulupg" id="mulupg12">Placeholder</button>
+                    </div>
+                    <div id="mulupgrow4" class="mulupgrow">
+                        <button class="mulupg" id="mulupg13">Placeholder</button>
+                        <button class="mulupg" id="mulupg14">Placeholder</button>
+                        <button class="mulupg" id="mulupg15">Placeholder</button>
+                        <button class="mulupg" id="mulupg16">Placeholder</button>
+                    </div>
+                </div>
+                <div id="power-content" class="power-content">
                     <p id="mul-points">Power = 0.00</p>
                     <p id="mul-pointsproduced">You are producing 0.00 power per second boosting your overall point production by 0.00%</p>
                     <div class="products">
                         <p id="products">You have 0 Products producing 0 power per second</p>
                         <button id="products-btn">Buy Product (Cost: 10 Theta)</button>
                     </div>
-                        <div class="quintuplers">
+                    <div class="quintuplers">
                         <p id="quin">You have 0 Quintuplers producing 0 power per second</p>
                         <button id="quin-btn">Buy Quintupler (Cost: 100 Power)</button>
                     </div>
@@ -84,9 +113,10 @@
         </div>
         <div id="win">
             <h1 class="win-title">Congratulations!</h1>
-            <p>You have beaten the game by purchasing Subtraction Upgrade 3! More content will be added in the future, so stay tuned!</p>
+            <p>You have beaten the game by purchasing Multiplication Upgrade 4! More content will be added in the future, so stay tuned!</p>
         </div>
         <script src="game.js"></script>
         <script src="multiplication.js"></script>
+        <script src="multiplicationupgrades.js"></script>
     </body>
 </html>
