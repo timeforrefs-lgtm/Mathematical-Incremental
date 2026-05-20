@@ -259,7 +259,7 @@ document.getElementById("sub-btn").onclick = function() {
 }
 
 document.getElementById("subupgrade1").onclick = function() {
-    if (theta >= 2 && !subupgrade1Purchased) {
+    if (theta >= 1 && !subupgrade1Purchased) {
         subupgrade1Purchased = true;
         document.getElementById("subupgrade1").classList.add("bought");
         updateGUI();
