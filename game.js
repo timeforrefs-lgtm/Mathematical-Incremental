@@ -153,7 +153,7 @@ function updateGUI() {
         `You have ${cnter3} Tallies producing ${formatNumber(tallyProd * powerboost)} points per second`;
 
     document.getElementById("costsu1").innerHTML =
-        subupgrade1Purchased ? `Unlocked!` : `Required: 2 Theta`;
+        subupgrade1Purchased ? `Unlocked!` : `Required: 1 Theta`;
 
     document.getElementById("costsu2").innerHTML =
         subupgrade2Purchased ? `Unlocked!` : `Required: 5 Theta`;
@@ -188,7 +188,7 @@ function updateGUI() {
         document.getElementById("tally-btn").classList.remove("affordable");
     }
 
-    if (theta >= 2 && !subupgrade1Purchased && currentTab === "+/-") {
+    if (theta >= 1 && !subupgrade1Purchased && currentTab === "+/-") {
         document.getElementById("subupgrade1").classList.add("affordable");
     }
 
