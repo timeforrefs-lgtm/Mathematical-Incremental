@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="The good old mathematical incremental game by Timeforrefs (heavily inspired by Algebraic Progression)" />
-        <title>Mathematical Incremental v0.3.2</title>
+        <title>Mathematical Incremental v0.4.0</title>
         <link rel="icon" type="image/png" href="mathinc.png">
         <link rel="stylesheet" href="style.css">
     </head>
@@ -15,10 +15,14 @@
             <p>You have clicked the +1 Point button too many times or you cheated in F12 and have lost the game! Don't worry, you can just refresh the page to start over. Just try not to click the +1 Point button too many times again.</p>
         </div>
         <div id="everything">
+            <div id="reset">
+                <button id="dvsreset-btn">Reset for <span id="dvsgain">100,000,000</span> Divisors</button>
+            </div>
             <div class="tabs">
                 <button onclick="tab1()">Main</button>
                 <button onclick="tab2()">Guide</button>
                 <button id="mul-tab" onclick="tab3()">Multiplication</button>
+                <button id="dvs-tab" onclick="tab4()">Division</button>
             </div>
 
             <div class="main-container" id="main-container">
@@ -34,17 +38,66 @@
                     And do not click the +1 Point button too many times. You won't like what happens if you do.
                 </p>
             </div>
+            <div class="dvs-content" id="dvs-content">
+                <div id="dvs-tabs">
+                    <button onclick="dvstab1()">Milestones</button>
+                    <button onclick="dvstab2()">Divisors/Fractions</button>
+                    <button id="dvstab3" onclick="dvstab3()">Percentages</button>
+                </div>
+                <div id="milestones">
+                    <p class="dividend-txt">You have <span id="dividend">0</span> Dividends</p>
+                    <button class="milestones" id="mile1"><span class="miletitle">1 Dividend</span>You keep Subtraction Upgrade 2 and 3</button>
+                    <button class="milestones" id="mile2"><span class="miletitle">2 Dividends</span>Subtraction Upgrade 1's exponent is now ^1.5</button>
+                    <button class="milestones" id="mile3"><span class="miletitle">3 Dividends</span>You start with 500 points</button>
+                    <button class="milestones" id="mile4"><span class="miletitle">4 Dividends</span>You unlock Subtraction Upgrade 4 and Point and Power gain is multiplied based on Dividends</button>
+                    <button class="milestones" id="mile5"><span class="miletitle">5 Dividends</span>You keep all Addition and Multiplication generators</button>
+                    <button class="milestones" id="mile6"><span class="miletitle">8 Dividends</span>You start with 30 Theta</button>
+                    <button class="milestones" id="mile7"><span class="miletitle">10 Dividends</span>Costing exponent for Point Generators, Theta and Power Generators is ^1.01</button>
+                    <button class="milestones" id="mile8"><span class="miletitle">15 Dividends</span>Dividing does not reset anything</button>
+                    <button class="milestones" id="mile9"><span class="miletitle">20 Dividends</span>Unlock Percentages</button>
+                    <button class="milestones" id="mile10"><span class="miletitle">30 Dividends</span>Divisors boost Dividends</button>
+                    <button class="milestones" id="mile11"><span class="miletitle">10,000 Dividends</span>Beat the Game</button>
+                </div>
+                <div id="dvsreset">
+                    <p class="dvs-txt">You have <span id="divisor">0</span> Divisors</p>
+                    <div id="fraction">
+                        <p id="numerator">You have 0 Numerators (+0 Theta onclick)</p>
+                        <button id="numerator1">Change 1 Divisor into 1 Numerator</button>
+                        <button id="numeratormax">Change all Divisors into Numerators</button>
+                        <p id="denominator">You have 0 Denominators (Dividing Theta cost by 1)</p>
+                        <button id="denominator1">Change 1 Divisor into 1 Denominator</button>
+                        <button id="denominatormax">Change all Divisors into Denominators</button>
+                    </div>
+                </div>
+                <div id="percent">
+                    <p id="percenttxt">You have 0 Percentages (+0 Percentage per second)</p>
+                    <div class="percentupg">
+                        <button id="percent1"><span class="percenttitle">You are in the (poi)nth Percentile</span>Addition Generator produce +1% more point gain for 10 Percentages</button>
+                        <button id="percent2"><span class="percenttitle">More Power</span>Multiplication Generators produce +1% more Power for 10 Percentages</button>
+                        <button id="percent3"><span class="percenttitle">Like an Angle</span>SU1 is +1% more effective for 10 Percentages</button>
+                        <button id="percent4"><span class="percenttitle">Nobody cares about Compound Interest II</span>Earn +1% of Theta for 10 Percentages</button>
+                    </div>
+                    
+                    <div class="percentboost">
+                        <p id="percentboosttxt">You are getting +0% more point gain from PU1</p>
+                        <p id="percentboosttxt2">You are getting +0% more power gain from PU2</p>
+                        <p id="percentboosttxt3">SU1 is +0% more effective</p>
+                        <p id="percentboosttxt4">You are gaining Percentage from 1% of Theta</p>
+                    </div>
+                </div>
+            </div>
             <div class="mul-content" id="mul-tab-content">
                 <div id="mul-tabs">
                     <button onclick="multab1()">Power Gain</button>
                     <button onclick="multab2()">Multiplication Upgrades</button>
+                    <button onclick="multab3()" id="factor">Factors</button>
                 </div>
                 <div id="mulupgrades" class="mulupgrades">
                     <div id="mulupgrow1" class="mulupgrow">
                         <button class="mulupg" id="mulupg1"><span class="mu1-title">Nobody cares about Compound Interest</span><br><span>Addition now only requires Points instead of Costing Points</span><br><span id="costmu1">Cost: 1.00e9 Points</span></button>
                         <button class="mulupg" id="mulupg2"><span class="mu2-title">Poor mouse...</span><br><span>Addition Generators now have Autobuyers</span><br><span id="costmu2">Cost: 2.00e10 Points</span></button>
                         <button class="mulupg" id="mulupg3"><span class="mu3-title">OP AmplifierClicker</span><br><span>Amplifiers produce 20x more Power</span><br><span id="costmu3">Cost: 5.00e10 Points</span></button>
-                        <button class="mulupg" id="mulupg4"><span class="mu4-title">This ain't Subtraction Upgrade 3...</span><br><span>Beat the Game</span><br><span id="costmu4">Cost: 1.00e11 Points</span></button>
+                        <button class="mulupg" id="mulupg4"><span class="mu4-title">You can't be Great and Common!</span><br><span>Unlock Factors</span><br><span id="costmu4">Cost: 1.00e15 Points</span></button>
                     </div>
                     <div id="mulupgrow2" class="mulupgrow">
                         <button class="mulupg" id="mulupg5">Placeholder</button>
@@ -81,42 +134,62 @@
                         <button id="ampl-btn">Buy Amplifier (Cost: 500 Power)</button>
                     </div>
                 </div>
+                <div id="factors" class="factors">
+                    <p id="factorsmult">Power is being multiplied by a factor of 1.00</p>
+                    <p id="factorpt">The Highest Common Factor of Points and Theta is 1</p>
+                    <div class="factorspoints">
+                        <p>Points factorised: 1</p>
+                        <button id="factorbtn1">Update Points?</button>
+                    </div>
+                    <div class="factorspoints">
+                        <p>Theta factorised: 1</p>
+                        <button id="factorbtn2">Update Theta?</button>
+                    </div>
+                </div>
             </div>
             <div class="BIDMAS-container">
                 <div class="addition-container" id="addition-container">
-                    <p class="main-add">Addition (+)</p>
+                    <p class="main-add">Addition</p>
                     <hr class="add-break">
                     <div class="summations">
                         <p id="sum">You have 0 Summations producing 0.00 points per second</p>
-                        <button id="sum-btn">Buy Summation (Cost: 10.00 points)</button>
+                        <button id="sum-btn">[Hotkey: 1] Buy Summation (Cost: 10.00 points)</button>
                     </div>
                     <div class="evaluations">
                         <p id="eval">You have 0 Evaluations producing 0.00 points per second</p>
-                        <button id="eval-btn">Buy Evaluation (Cost: 100.00 points)</button>
+                        <button id="eval-btn">[Hotkey: 2] Buy Evaluation (Cost: 100.00 points)</button>
                     </div>
                     <div class="tallies">
                         <p id="tally">You have 0 Tallies producing 0.00 points per second</p>
-                        <button id="tally-btn">Buy Tally (Cost: 500.00 points)</button>
+                        <button id="tally-btn">[Hotkey: 3] Buy Tally (Cost: 500.00 points)</button>
                     </div>
                 </div>
                 <div class="subtraction-container" id="subtraction-container">
-                    <p class="main-sub">Subtraction (-)</p>
+                    <p class="main-sub">Subtraction</p>
                     <hr class="sub-break">
-                    <button id="sub-btn">Gain Theta (Cost: 10000 points)</button>
+                    <div class="theta">
+                        <button id="sub-btn">[Hotkey: T] Gain Theta (Cost: 10000 points)</button>
+                        <button id="subauto-btn">Auto: ON</button>
+                    </div>
                     <div class="stylesub">
                         <button id="subupgrade1"><span class="su1-title">Hey, this is worthless!</span><span>Boost Point Gain based on Theta</span><br><span id="costsu1">Required: 1 Theta</span></button>
                         <button id="subupgrade2"><span class="su2-title">OP TallyClicker</span><span>Tallies produce 20x more points</span><br><span id="costsu2">Required: 5 Theta</span></button>
-                        <button id="subupgrade3"><span class="su3-title">The Beginning of Times</span><span>Unlock Multiplication</span><br><span id="costsu3">Required: 30 Theta</span></button>
+                        <button id="subupgrade3" class="subupgrade3 triangle"><span class="su3-title">The Beginning of Times</span><span>Unlock Multiplication</span><br><span id="costsu3">Required: 30 Theta</span></button>
+                        <button id="subupgrade4"><span class="su4-title">Time to Reflex</span><span>Unlock an Auto Button for Theta</span><br><span id="costsu4">Required: 250 Theta</span></button>
                     </div>
                 </div>
             </div>
         </div>
         <div id="win">
             <h1 class="win-title">Congratulations!</h1>
-            <p>You have beaten the game by purchasing Multiplication Upgrade 4! More content will be added in the future, so stay tuned!</p>
+            <p>You have beaten the game by reaching 10,000 Dividends! More content will be added in the future in Mathematical Incremental: RECODED, so stay tuned!</p>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/break_eternity.js/dist/break_eternity.min.js"></script>
+
         <script src="game.js"></script>
         <script src="multiplication.js"></script>
         <script src="multiplicationupgrades.js"></script>
+        <script src="division.js"></script>
+        <script src="hotkey.js"></script>
     </body>
 </html>

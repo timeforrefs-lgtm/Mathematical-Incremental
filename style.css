@@ -42,6 +42,11 @@ body {
 button{
     border-radius: 3px;
     border-width: 2px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+button:hover{
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .main-container {
@@ -212,7 +217,7 @@ button{
     cursor: pointer;
 }
 
-#subupgrade1, #subupgrade2, #subupgrade3 {
+#subupgrade1, #subupgrade2, #subupgrade3, #subupgrade4 {
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
     border-color: rgb(6, 67, 165);
     background-color: rgb(6, 67, 165);
@@ -222,22 +227,22 @@ button{
     align-self: center;
 }
 
-#subupgrade1:hover, #subupgrade2:hover, #subupgrade3:hover {
+#subupgrade1:hover, #subupgrade2:hover, #subupgrade3:hover, #subupgrade4:hover {
     cursor:not-allowed;
 }
 
-#subupgrade1.affordable, #subupgrade2.affordable, #subupgrade3.affordable {
+#subupgrade1.affordable, #subupgrade2.affordable, #subupgrade3.affordable, #subupgrade4.affordable {
     transition:all 0.3s ease-in-out;
     border-color: rgb(167, 172, 0);
     background-color: rgb(167, 172, 0);
     color: white;
 }
 
-#subupgrade1.affordable:hover, #subupgrade2.affordable:hover, #subupgrade3.affordable:hover {
+#subupgrade1.affordable:hover, #subupgrade2.affordable:hover, #subupgrade3.affordable:hover, #subupgrade4.affordable:hover {
     cursor: pointer;
 }
 
-#subupgrade1.bought, #subupgrade2.bought, #subupgrade3.bought {
+#subupgrade1.bought, #subupgrade2.bought, #subupgrade3.bought, #subupgrade4.bought {
     transition:all 0.3s ease-in-out;
     border-color: rgb(0, 138, 30);
     background-color: rgb(0, 138, 30);
@@ -253,17 +258,23 @@ button{
     margin-top: 10px;
 }
 
-#subupgrade3 {
+.subupgrade3.triangle {
     grid-column: 1 / 3;
     justify-self: center;
     width: 220px;
+}
+
+.subupgrade3.square {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
 }
 
 .stylesub button {
     height: 100px;
 }
 
-.su1-title, .su2-title, .su3-title {
+.su1-title, .su2-title, .su3-title, .su4-title{
     font-weight: 700;
     font-size: 14px;
     display: block;
@@ -309,7 +320,7 @@ button{
 }
 
 #mul-tab {
-    border: 2px solid rgb(198, 119, 0);
+    border: 2px outset rgb(198, 119, 0);
     background-color: rgb(255, 211, 90);
     color: rgb(198, 119, 0);
 }
@@ -318,6 +329,10 @@ button{
     background-color: rgb(198, 119, 0);
     color: rgb(255, 211, 90);
     cursor: pointer;
+}
+
+#mul-tab:active {
+    border: 2px inset rgb(198, 119, 0);
 }
 
 .power-content {
@@ -395,6 +410,30 @@ button{
     justify-content: flex-start;
 }
 
+#power-content button {
+    border-color: rgb(255, 0, 0);
+}
+
+#power-content button:hover {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    cursor: pointer;
+}
+
+#power-content button.affordable {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-color: rgb(0, 138, 30);
+    background-color: rgb(240, 240, 240);
+}
+
+#power-content button.affordable:hover {
+    transition:all 0.3s ease-in-out;
+    background-color: rgb(0, 138, 30);
+    color: white;
+    cursor: pointer;
+}
+
 .mulupgrades button {
     background-color: red;
     border-color: red;
@@ -444,4 +483,235 @@ button{
     flex-direction: row;
     gap: 6px;
     margin-bottom: 6px;
+}
+
+
+
+#dvs-tab {
+    background-color: rgb(230, 154, 230);
+    border-color: rgb(143, 0, 165);
+    color: rgb(143, 0, 165);
+}
+
+#dvs-tab:hover {
+    background-color: rgb(143, 0, 165);
+    color: rgb(230, 154, 230);
+}
+
+#dvs-tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+#dvs-tabs button {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-color: rgb(143, 0, 165);
+    background-color: rgb(230, 154, 230);
+    color: rgb(143, 0, 165);
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+#dvs-tabs button:hover {
+    background-color: rgb(143, 0, 165);
+    color:rgb(230, 154, 230);
+    cursor: pointer;
+}
+
+#milestones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.milestones {
+    width: 450px;
+    height: 120px;
+    border-width: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 93, 93);
+    border-color: rgb(137, 0, 0);
+    color: rgb(137, 0, 0);
+}
+
+#mile1.obtained, #mile2.obtained, #mile3.obtained, #mile4.obtained, #mile5.obtained, #mile6.obtained, #mile7.obtained, #mile8.obtained, #mile9.obtained, #mile10.obtained, #mile11.obtained {
+    background-color: rgb(0, 250, 0);
+    color: rgb(0, 90, 0);
+    border-color: rgb(0, 90, 0);
+}
+
+.miletitle {
+    font-size: 24px;
+    font-weight: 550;
+    margin-bottom: 20px;
+}
+
+#reset {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#dvsreset-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-color: rgb(143, 0, 165);
+    background-color: rgb(230, 154, 230);
+    color: rgb(143, 0, 165);
+    height: 100px;
+    width: 130px;
+    font-size: 18px;
+    margin: 20px;
+}
+
+#dvsreset-btn:hover {
+    background-color: rgb(143, 0, 165);
+    color: rgb(230, 154, 230);
+    cursor: pointer;
+}
+
+#divisor {
+    color: rgb(143, 0, 165);
+}
+
+#dvsreset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#fraction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(230, 154, 230);
+    border: 5px solid rgb(143, 0, 165);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#fraction button{
+    width: 150px;
+    margin: 4px;
+}
+
+#fraction button:hover {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    cursor: pointer;
+    background-color:rgb(102, 102, 102);
+    color: white;
+}
+
+.dvs-txt{
+    font-size: 24px;
+}
+
+#percent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    gap: 10px;
+}
+
+.percentupg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.percentupg button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    margin: 4px;
+    height: 200px;
+    border: 2px outset rgb(255, 0, 0);
+    background-color: rgb(255, 0, 0);
+    color: white;
+    cursor: not-allowed;
+}
+
+.percenttitle {
+    font-weight: 550;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.percentupg button:hover {
+    cursor: not-allowed;
+}
+
+.percentupg button:active {
+        border: 2px inset rgb(255, 0, 0);
+}
+
+.percentupg button.affordable {
+    border: 2px outset rgb(167, 172, 0);
+    background-color: rgb(167, 172, 0);
+    color: white;
+}
+
+.percentupg button.affordable:hover {
+    cursor: pointer;
+}
+
+#percenttxt {
+    font-size: 24px;
+}
+
+.factors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.factorspoints {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.theta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#subauto-btn {
+    border-color: rgb(41, 123, 255);
+    background-color: rgb(142, 183, 255);
+    color: black;
+    font-size: 20px;
+    border-width: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#subauto-btn:hover {
+    background-color: rgb(41, 123, 255);
+    color: white;
 }

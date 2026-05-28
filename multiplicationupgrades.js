@@ -3,85 +3,136 @@ let mulUpgrade2Bought = false;
 let mulUpgrade3Bought = false;
 let mulUpgrade4Bought = false;
 
-// Costs
-const mu1Cost = 1e9;
-const mu2Cost = 2e10;
-const mu3Cost = 5e10;
-const mu4Cost = 1e11;
+const mu1Cost = new Decimal(1e9);
+const mu2Cost = new Decimal(2e10);
+const mu3Cost = new Decimal(5e10);
+const mu4Cost = new Decimal(1e15);
 
-var mu1costdedu = 1
-var mu3boost = 1
+var mu1costdedu = new Decimal(1);
+var mu3boost = new Decimal(1);
 
-// Update multiplication upgrade GUI
+document.getElementById("mulupg4").style.display = "none";
+
 function updateMulUpgradeGUI() {
 
-    // Affordable states
-    if (points >= mu1Cost && !mulUpgrade1Bought) {
-        document.getElementById("mulupg1").classList.add("affordable");
-    } else {
-        document.getElementById("mulupg1").classList.remove("affordable");
-    }
+    document.getElementById("mulupg1")
+        .classList.toggle(
+            "affordable",
+            points.gte(mu1Cost) && !mulUpgrade1Bought
+        );
 
-    if (points >= mu2Cost && !mulUpgrade2Bought) {
-        document.getElementById("mulupg2").classList.add("affordable");
-    } else {
-        document.getElementById("mulupg2").classList.remove("affordable");
-    }
+    document.getElementById("mulupg2")
+        .classList.toggle(
+            "affordable",
+            points.gte(mu2Cost) && !mulUpgrade2Bought
+        );
 
-    if (points >= mu3Cost && !mulUpgrade3Bought) {
-        document.getElementById("mulupg3").classList.add("affordable");
-    } else {
-        document.getElementById("mulupg3").classList.remove("affordable");
-    }
+    document.getElementById("mulupg3")
+        .classList.toggle(
+            "affordable",
+            points.gte(mu3Cost) && !mulUpgrade3Bought
+        );
 
-    if (points >= mu4Cost && !mulUpgrade4Bought) {
-        document.getElementById("mulupg4").classList.add("affordable");
-    } else {
-        document.getElementById("mulupg4").classList.remove("affordable");
-    }
+    document.getElementById("mulupg4")
+        .classList.toggle(
+            "affordable",
+            points.gte(mu4Cost) && !mulUpgrade4Bought
+        );
 
-    // Bought states
     if (mulUpgrade1Bought) {
-        document.getElementById("mulupg1").classList.add("bought");
-        document.getElementById("costmu1").innerHTML = "Bought!";
+
+        document.getElementById("mulupg1")
+            .classList.add("bought");
+
+        document.getElementById("costmu1")
+            .textContent = "Bought!";
+
+    } else {
+
+        document.getElementById("mulupg1")
+            .classList.remove("bought");
+
+        document.getElementById("costmu1")
+            .textContent = `Cost: ${formatNumber(mu1Cost)} Points`;
     }
 
     if (mulUpgrade2Bought) {
-        document.getElementById("mulupg2").classList.add("bought");
-        document.getElementById("costmu2").innerHTML = "Bought!";
+
+        document.getElementById("mulupg2")
+            .classList.add("bought");
+
+        document.getElementById("costmu2")
+            .textContent = "Bought!";
+
+    } else {
+
+        document.getElementById("mulupg2")
+            .classList.remove("bought");
+
+        document.getElementById("costmu2")
+            .textContent = `Cost: ${formatNumber(mu2Cost)} Points`;
     }
 
     if (mulUpgrade3Bought) {
-        document.getElementById("mulupg3").classList.add("bought");
-        document.getElementById("costmu3").innerHTML = "Bought!";
+
+        document.getElementById("mulupg3")
+            .classList.add("bought");
+
+        document.getElementById("costmu3")
+            .textContent = "Bought!";
+
+    } else {
+
+        document.getElementById("mulupg3")
+            .classList.remove("bought");
+
+        document.getElementById("costmu3")
+            .textContent = `Cost: ${formatNumber(mu3Cost)} Points`;
     }
 
     if (mulUpgrade4Bought) {
-        document.getElementById("mulupg4").classList.add("bought");
-        document.getElementById("costmu4").innerHTML = "Bought!";
+
+        document.getElementById("mulupg4")
+            .classList.add("bought");
+
+        document.getElementById("costmu4")
+            .textContent = "Bought!";
+
+    } else {
+
+        document.getElementById("mulupg4")
+            .classList.remove("bought");
+
+        document.getElementById("costmu4")
+            .textContent = `Cost: ${formatNumber(mu4Cost)} Points`;
     }
 }
 
-// Upgrade 1
+// UPGRADE 1
+
 document.getElementById("mulupg1").onclick = function () {
 
-    if (points >= mu1Cost && !mulUpgrade1Bought) {
+    if (points.gte(mu1Cost) && !mulUpgrade1Bought) {
 
-        points -= mu1Cost;
+        points = points.sub(mu1Cost);
+
         mulUpgrade1Bought = true;
-        mu1costdedu = 0
+
+        mu1costdedu = new Decimal(0);
 
         updateMulUpgradeGUI();
         updateGUI();
     }
 };
 
-// Upgrade 2 - Addition Autobuyers
+// UPGRADE 2
+
 document.getElementById("mulupg2").onclick = function () {
 
-    if (points >= mu2Cost && !mulUpgrade2Bought) {
+    if (points.gte(mu2Cost) && !mulUpgrade2Bought) {
 
-        points -= mu2Cost;
+        points = points.sub(mu2Cost);
+
         mulUpgrade2Bought = true;
 
         updateMulUpgradeGUI();
@@ -89,73 +140,87 @@ document.getElementById("mulupg2").onclick = function () {
     }
 };
 
-// Upgrade 3 - Theta Autobuyer
+// UPGRADE 3
+
 document.getElementById("mulupg3").onclick = function () {
 
-    if (points >= mu3Cost && !mulUpgrade3Bought) {
+    if (points.gte(mu3Cost) && !mulUpgrade3Bought) {
 
-        points -= mu3Cost;
+        points = points.sub(mu3Cost);
+
         mulUpgrade3Bought = true;
-        mu3boost = 20
+
+        mu3boost = new Decimal(20);
 
         updateMulUpgradeGUI();
         updateGUI();
     }
 };
 
-// Upgrade 4 - Win
+// UPGRADE 4
+
 document.getElementById("mulupg4").onclick = function () {
 
-    if (points >= mu4Cost && !mulUpgrade4Bought) {
+    if (points.gte(mu4Cost) && !mulUpgrade4Bought) {
 
-        points -= mu4Cost;
+        points = points.sub(mu4Cost);
+
         mulUpgrade4Bought = true;
-
-        document.getElementById("everything").style.display = "none";
-        document.getElementById("win").style.display = "flex";
 
         updateMulUpgradeGUI();
         updateGUI();
     }
 };
 
-// BULK AUTOBUYERS
+// AUTO BUYERS
+
 setInterval(function () {
 
-    // Addition autobuyers
     if (mulUpgrade2Bought) {
 
-        // Summations
-        while (points >= Math.floor(10 * mult)) {
+        // SUMMATIONS
+
+        while (points.gte(sumCost)) {
 
             if (!mulUpgrade1Bought) {
-                points -= Math.floor(10 * mult) * mu1costdedu;
+                points = points.sub(sumCost.mul(mu1costdedu));
             }
 
             cnter++;
-            mult = Math.pow(1.15, cnter);
+
+            sumCost = sumCost
+                .mul(1.15)
+                .floor();
         }
 
-        // Evaluations
-        while (points >= Math.floor(100 * mult2)) {
+        // EVALUATIONS
+
+        while (points.gte(evalCost)) {
 
             if (!mulUpgrade1Bought) {
-                points -= Math.floor(100 * mult2) * mu1costdedu;
+                points = points.sub(evalCost.mul(mu1costdedu));
             }
 
             cnter2++;
-            mult2 = Math.pow(1.15, cnter2);
+
+            evalCost = evalCost
+                .mul(1.15)
+                .floor();
         }
 
-        // Tallies
-        while (points >= Math.floor(500 * mult3)) {
+        // TALLIES
+
+        while (points.gte(tallyCost)) {
 
             if (!mulUpgrade1Bought) {
-                points -= Math.floor(500 * mult3) * mu1costdedu;
+                points = points.sub(tallyCost.mul(mu1costdedu));
             }
 
             cnter3++;
-            mult3 = Math.pow(1.15, cnter3);
+
+            tallyCost = tallyCost
+                .mul(1.15)
+                .floor();
         }
     }
 
@@ -164,5 +229,139 @@ setInterval(function () {
 
 }, 100);
 
-// Initial GUI update
+// FACTORS
+
+let pointsFactor = new Decimal(1);
+let thetaFactor = new Decimal(1);
+
+let factorBoost = new Decimal(1);
+
+// PRIME FACTOR FUNCTION
+
+function factorizeNumber(num) {
+
+    num = Decimal.floor(num);
+
+    if (num.lte(1)) {
+        return "1";
+    }
+
+    // prevent gigantic lag
+
+    if (num.gte(1e6)) {
+        return "Too Large";
+    }
+
+    let n = num.toNumber();
+
+    let divisor = 2;
+
+    let factors = [];
+
+    while (n >= 2) {
+
+        if (n % divisor === 0) {
+
+            factors.push(divisor);
+
+            n = n / divisor;
+
+        } else {
+
+            divisor++;
+        }
+    }
+
+    return factors.join(" × ");
+}
+
+// GCD
+
+function gcd(a, b) {
+
+    a = Decimal.floor(a);
+    b = Decimal.floor(b);
+
+    while (!b.eq(0)) {
+
+        let temp = b;
+
+        b = a.mod(b);
+
+        a = temp;
+    }
+
+    return a;
+}
+
+// UPDATE FACTORS GUI
+
+function updateFactors() {
+
+    let currentGCD = gcd(
+        Decimal.max(points.floor(), 1),
+        Decimal.max(theta.floor(), 1)
+    );
+
+    factorBoost = Decimal.pow(
+        currentGCD.add(1),
+        0.15
+    );
+
+    document.getElementById("factorpt").textContent =
+        `The Highest Common Factor of Points and Theta is ${formatNumberShort(currentGCD)}`;
+
+    document.getElementById("factorsmult").textContent =
+        `Power is being multiplied by a factor of ${formatNumber(factorBoost)}`;
+
+    document.getElementsByClassName("factorspoints")[0]
+        .getElementsByTagName("p")[0]
+        .textContent =
+        `Points factorised: ${factorizeNumber(pointsFactor)}`;
+
+    document.getElementsByClassName("factorspoints")[1]
+        .getElementsByTagName("p")[0]
+        .textContent =
+        `Theta factorised: ${factorizeNumber(thetaFactor)}`;
+}
+
+// BUTTONS
+
+document.getElementById("factorbtn1").onclick =
+function() {
+
+    pointsFactor = Decimal.max(
+        1,
+        points.floor()
+    );
+
+    updateFactors();
+};
+
+document.getElementById("factorbtn2").onclick =
+function() {
+
+    thetaFactor = Decimal.max(
+        1,
+        theta.floor()
+    );
+
+    updateFactors();
+};
+
+// LOOP
+
+setInterval(function() {
+
+    if (
+        currentTab === "mul" &&
+        currentmulTab === "factors"
+    ) {
+
+        updateFactors();
+    }
+
+}, 100);
+
+
 updateMulUpgradeGUI();
